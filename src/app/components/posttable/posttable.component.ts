@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../services/post/post.service';
+import { Post } from '../../post';
 
 @Component({
   selector: 'app-posttable',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PosttableComponent implements OnInit {
 
-  constructor() { }
+  posts: Post[] = [];
+  
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this
+    .postService
+    .getPosts()
+    .subscribe((data) => {
+      this.posts = data;
+  });
   }
 
 }
