@@ -5,11 +5,13 @@ export interface Post {
     imageUrl: String,
     user: {
         id: String,
-        nickname: String
+        nickname: String,
+        groups: any[]
     },
     group: {
         id: number,
-        name: String
+        name: String,
+        users: any[]
     },
     votes: Object[],
     comments: Object[]

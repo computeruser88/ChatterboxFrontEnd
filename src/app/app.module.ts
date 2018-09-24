@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 
 import { ROUTES } from './app.routes';
 
+import { ProfileService } from './services/profile/profile.service';
+
 import { AuthService } from './services/auth/auth.service';
 import { PostService } from './services/post/post.service';
 import { CallbackComponent } from './components/callback/callback.component';
@@ -20,6 +22,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import {DataTableModule} from "angular-6-datatable";
 import { PosttableComponent } from './components/posttable/posttable.component';
 import { NewpostComponent } from './components/newpost/newpost.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { NewpostComponent } from './components/newpost/newpost.component';
     TableComponent,
     PaginationComponent,
     PosttableComponent,
-    NewpostComponent
+    NewpostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,7 @@ import { NewpostComponent } from './components/newpost/newpost.component';
     DataTableModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService, PostService],
+  providers: [AuthService, PostService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
