@@ -5,6 +5,9 @@ import { Router } from "@angular/router";
 // import { filter } from "../../../../node_modules/rxjs/operators";
 import * as auth0 from "auth0-js";
 // import { log } from "util";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserService } from "../user/user.service";
+
 
 (window as any).global = window;
 
@@ -18,10 +21,21 @@ export class AuthService {
     scope: "openid profile email read:users user_id id"
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private http: HttpClient, private user: UserService) { }
+
 
   public login(): void {
     this.auth0.authorize();
+    console.log(this.isAuthenticated());
+    if (this.isAuthenticated()) {
+      console.log("running addUser");
+      console.log(this.auth0);
+      // this.user.addUser({
+      //   id: "afej34",
+      //   nickname: "Jan",
+      //   groups: []
+      // });
+    }
   }
 
   public handleAuthentication(): void {
@@ -73,12 +87,24 @@ export class AuthService {
     if (!accessToken) {
       throw new Error("Access Token must exist to fetch profile");
     }
-    
+
     const self = this;
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       console.log(profile);
       if (profile) {
         self.userProfile = profile;
+        this.user.addUser({
+          id: profile.sub,
+          nickname: profile.nickname,
+          groups: []
+        }).subscribe(
+          user => {
+              console.log("PUT Request is successful ", user);
+          },
+          error => {
+              console.log("Error", error);
+          }
+      );
       }
       cb(err, profile);
     });

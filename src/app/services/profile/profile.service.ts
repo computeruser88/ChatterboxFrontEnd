@@ -19,8 +19,9 @@ export class ProfileService {
   }
 
   ngOnInit() {
- 
+    
   }
+  
   getProfile() {
     console.log(this.profile);
     return this.profile;

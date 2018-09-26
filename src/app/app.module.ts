@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './app.routes';
 
 import { ProfileService } from './services/profile/profile.service';
+import { UserService } from './services/user/user.service';
 
 import { AuthService } from './services/auth/auth.service';
 import { PostService } from './services/post/post.service';
@@ -44,7 +45,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     DataTableModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService, PostService, ProfileService],
+  providers: [AuthService, PostService, ProfileService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

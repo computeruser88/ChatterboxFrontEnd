@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser'
 @Injectable()
 export class PostService {
 
-  url = 'http://localhost:8082/p2-mvc/api/posts/TestGroup';
+  url = 'http://ec2-52-91-214-208.compute-1.amazonaws.com:8080/p2-mvc-0.0.1-SNAPSHOT/api/groups/TestGroup/posts';
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
@@ -15,7 +15,7 @@ export class PostService {
   }
 
   newPost(post: Post): Observable<Post> {
-    const url2 = 'http://localhost:8082/p2-mvc/api/groups/TestGroup/posts';
+    const url2 = 'http://ec2-52-91-214-208.compute-1.amazonaws.com:8080/p2-mvc-0.0.1-SNAPSHOT/api/groups/TestGroup/posts';
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
