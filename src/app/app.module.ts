@@ -25,6 +25,7 @@ import {DataTableModule} from "angular-6-datatable";
 import { PosttableComponent } from './components/posttable/posttable.component';
 import { NewpostComponent } from './components/newpost/newpost.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SinglegroupComponent } from './components/singlegroup/singlegroup.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     PaginationComponent,
     PosttableComponent,
     NewpostComponent,
-    ProfileComponent
+    ProfileComponent,
+    SinglegroupComponent
   ],
   imports: [
     BrowserModule,

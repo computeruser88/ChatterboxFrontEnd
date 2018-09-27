@@ -6,7 +6,7 @@ import { Group } from '../../group';
 @Injectable()
 export class GroupService {
 
-  url = 'http://ec2-52-201-241-252.compute-1.amazonaws.com:8080/p2-mvc-0.0.1-SNAPSHOT/api/groups';
+  url = 'http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/groups';
   
   constructor(private http: HttpClient) { }
 
@@ -14,8 +14,12 @@ export class GroupService {
     return this.http.get<Group[]>(`${this.url}`);
   }
 
+  getSingleGroup(groupName: String): Observable<Group> {
+    return this.http.get<Group>(`${this.url}/${groupName}`);
+  }
+
   newGroup(group: Group): Observable<Group> {
-    const url2 = 'http://ec2-52-201-241-252.compute-1.amazonaws.com:8080/p2-mvc-0.0.1-SNAPSHOT/api/groups';
+    const url2 = 'http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/groups';
     let headers = new HttpHeaders({
       'Content-Type': '/json',
       'Cache-Control': 'no-cache'

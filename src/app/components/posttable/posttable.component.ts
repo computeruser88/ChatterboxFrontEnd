@@ -14,12 +14,11 @@ export class PosttableComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this
-    .postService
-    .getPosts()
-    .subscribe((data) => {
-      this.posts = data;
-  });
+  //   this
+  //   .postService
+  //   .getPostsByGroup()
+  //   .subscribe((data) => {
+  //     this.posts = data;
+  // });
   }
-
 }

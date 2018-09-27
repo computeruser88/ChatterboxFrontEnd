@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let group of groups">
-      <th scope="row">{{ group.name }}</th>
+      <th scope="row"><a (click)="onSubmit(group)">{{ group.name }}</a></th>
       <td>{{ group.users.length }}</td>
       <td>{{ group.posts }}</td>
       <td>{{ group.votes }}</td>

@@ -1,14 +1,14 @@
-<form name="newMessage" action="POST">
-  <h4>Group: </h4>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Title</label>
-      <input type="title" class="form-control"[(ngModel)]="title" name="title" id="exampleFormControlInput1" placeholder="Enter post title here">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Message  </label>
-      <textarea class="form-control" [(ngModel)]="content" name="content" id="exampleFormControlTextarea1" rows="5"></textarea>
-    </div>
-    <div class="form-group">
-      <input type="submit" (click)="onSubmit()" value="Submit post" />
-    </div>
-  </form>
+<form (ngSubmit)="onSubmit()" #postForm="ngForm">
+  <h4>Group: {{ groupName }}</h4>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="title" id="title" placeholder="Enter post title here" required>
+  </div>
+  <div class="form-group">
+    <label for="content">Message </label>
+    <textarea class="form-control" name="content" id="content" rows="5" required></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success" [disabled]="!postForm.form.valid">Submit post</button>
+  </div>
+</form>

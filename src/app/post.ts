@@ -13,6 +13,6 @@ export interface Post {
         name: String,
         users: any[]
     },
-    votes: Object[],
-    comments: Object[]
+    votes: any[],
+    comments: any[]
 }

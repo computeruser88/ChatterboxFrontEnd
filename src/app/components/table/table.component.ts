@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { GroupService } from '../../services/group/group.service';
 import { Group } from '../../group';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -12,7 +13,7 @@ export class TableComponent implements OnInit {
 
   groups: Group[] = [];
 
-  constructor(private auth: AuthService, private group: GroupService) { 
+  constructor(private auth: AuthService, private group: GroupService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -23,6 +24,10 @@ export class TableComponent implements OnInit {
       this.groups = data;
       console.log(this.groups);
   });
+  }
+
+  onSubmit(group) {
+    this.router.navigate(['/groups', group.name]);
   }
 
 }

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserService {
 
   public user: any;
-  url = "http://ec2-52-91-214-208.compute-1.amazonaws.com:8080/p2-mvc-0.0.1-SNAPSHOT/api/users";
+  url = "http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/users";
   constructor(private http: HttpClient) { 
 
   }

@@ -3,6 +3,8 @@ import { PostService } from '../../services/post/post.service';
 import { Post } from '../../post';
 import { ProfileService} from '../../services/profile/profile.service';
 import { AuthService } from '../../services/auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newpost',
@@ -14,20 +16,26 @@ export class NewpostComponent implements OnInit {
   private title: String;
   private content: String;
   private profile: any;
-  // private posts: Post[];
+  private groupName: String;
+  private post: Post;
 
-  constructor(private auth: AuthService, private postService: PostService, private profileService: ProfileService) {
+  constructor(private auth: AuthService, private route: ActivatedRoute, private postService: PostService, private router: Router, private profileService: ProfileService) {
     this.profile = this.profileService.getProfile();
    }
 
   ngOnInit() {
-    
+    let name = this.route.snapshot.paramMap.get('id');
+    this.groupName = name;
+    console.log(this.groupName);
   }
 
   onSubmit(){ 
-    console.log(this.title);
-    console.log(this.content);
-    this.postService.newPost({
+    // console.log(this.title);
+    // console.log(this.content);
+    // let name = this.route.snapshot.paramMap.get('id');
+    // this.groupName = name;
+    // console.log(this.groupName);
+    this.post = {
       id: 0,
       title: this.title,
       content: this.content, 
@@ -39,13 +47,15 @@ export class NewpostComponent implements OnInit {
       },
       group: {
         id: 0,
-        name: null,
+        name: this.groupName,
         users: []
       },
       votes: [],
       comments: []
-    }).subscribe(post => console.log(post));
+    };
+    this.postService.newPost(this.groupName, this.post);
     console.log("Onsubmit method called");
+    this.router.navigate(['/groups', this.groupName]);
   }
 
 }

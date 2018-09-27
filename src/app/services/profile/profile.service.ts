@@ -23,7 +23,7 @@ export class ProfileService {
   }
   
   getProfile() {
-    console.log(this.profile);
+    // console.log(this.profile);
     return this.profile;
   }
 
