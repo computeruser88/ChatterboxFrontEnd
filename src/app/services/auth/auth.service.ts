@@ -18,7 +18,7 @@ export class AuthService {
     clientID: "BN8OknO8h7QdqNslyAQSJ3p312dsfMj1",
     domain: "project2-jcc.auth0.com",
     responseType: "token id_token",
-    redirectUri: "http://localhost:4200",
+    redirectUri: "http://chatterbox-front-end.s3-website-us-west-2.amazonaws.com",
     scope: "openid profile email read:users user_id id"
   });
 

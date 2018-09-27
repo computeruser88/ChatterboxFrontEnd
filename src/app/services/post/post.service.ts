@@ -25,7 +25,7 @@ export class PostService {
       },
       "group": {
         "id": 1,
-        "name": "TheOfficeFanFiction",
+        "name": post.group.name,
         "users": []
       },
       "votes": [],
