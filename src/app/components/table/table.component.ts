@@ -1,3 +1,5 @@
+// this component provides a list of groups with links to each group
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { GroupService } from '../../services/group/group.service';

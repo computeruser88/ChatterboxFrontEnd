@@ -1,3 +1,5 @@
+// this component returns the username
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 

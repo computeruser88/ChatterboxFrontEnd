@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Group } from '../../group';
-
+// this service returns either a single group or all groups
 @Injectable()
 export class GroupService {
 
-  url = 'http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/groups';
+  url = 'http://192.168.61.233:8084/p2-mvc/api/groups';
   
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class GroupService {
   }
 
   newGroup(group: Group): Observable<Group> {
-    const url2 = 'http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/groups';
+    const url2 = 'http://192.168.61.233:8084/p2-mvc/api/groups';
     let headers = new HttpHeaders({
       'Content-Type': '/json',
       'Cache-Control': 'no-cache'

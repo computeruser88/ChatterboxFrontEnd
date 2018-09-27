@@ -1,3 +1,5 @@
+// this service gets the current user, and adds new users to the database
+
 import { Injectable } from '@angular/core';
 import { AuthService} from '../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserService {
 
   public user: any;
-  url = "http://ec2-35-153-102-77.compute-1.amazonaws.com:8080/project2/api/users";
+  url = "http://192.168.61.233:8084/p2-mvc/api/users";
   constructor(private http: HttpClient) { 
 
   }

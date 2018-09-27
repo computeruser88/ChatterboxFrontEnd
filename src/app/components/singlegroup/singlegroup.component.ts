@@ -1,3 +1,5 @@
+// this component displays all posts for the selected group
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../services/post/post.service';
