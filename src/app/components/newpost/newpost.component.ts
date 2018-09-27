@@ -32,8 +32,8 @@ export class NewpostComponent implements OnInit {
   }
 
   onSubmit(){ 
-    // console.log(this.title);
-    // console.log(this.content);
+    console.log(this.title);
+    console.log(this.content);
     // let name = this.route.snapshot.paramMap.get('id');
     // this.groupName = name;
     // console.log(this.groupName);

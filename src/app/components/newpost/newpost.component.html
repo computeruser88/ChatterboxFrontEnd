@@ -2,11 +2,11 @@
   <h4>Group: {{ groupName }}</h4>
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" id="title" placeholder="Enter post title here" required>
+    <input type="text" class="form-control" name="title" [(ngModel)]="title" id="title" placeholder="Enter post title here" required>
   </div>
   <div class="form-group">
     <label for="content">Message </label>
-    <textarea class="form-control" name="content" id="content" rows="5" required></textarea>
+    <textarea class="form-control" name="content" [(ngModel)]="content" id="content" rows="5" required></textarea>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-success" [disabled]="!postForm.form.valid">Submit post</button>
